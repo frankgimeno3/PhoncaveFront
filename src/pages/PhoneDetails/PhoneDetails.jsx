@@ -1,5 +1,6 @@
 import "./PhoneDetails.css";
 import { useParams } from "react-router-dom";
+import { Link  } from "react-router-dom";
 
 function PhoneDetails({phonesjson}) {
   const { id } = useParams();
@@ -7,7 +8,7 @@ function PhoneDetails({phonesjson}) {
   console.log(phone)
   return (
  
-      <div className="countryCcolumn">
+      <div className="phonedetails">
         <h2>{phone.name}</h2>
         <h3>Description</h3>
         <p>{phone.description}</p>
@@ -16,6 +17,12 @@ function PhoneDetails({phonesjson}) {
         <p>Processor: {phone.processor}</p>
         <p>Ram {phone.ram}</p>
         <p>Screen {phone.screen}</p>
+        
+        <Link to={`/login`}>
+        <button>
+            Save
+        </button>
+        </Link>
       </div>
   );
 }

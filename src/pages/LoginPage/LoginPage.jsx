@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import authService from "../../services/auth.service";
+import video from "../../images/MobileAppPresentation_VideoTemplate.mp4";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -45,27 +46,33 @@ function LoginPage() {
   };
 
   return (
-    <div className="LoginPage">
+    <div className="homepage-video-container">
+      <video autoPlay loop muted>
+        <source src={video} type="video/mp4" />
+      </video>
+      <div className="homepage-video-overlay">
       <h1>Login</h1>
 
-      <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+<form onSubmit={handleLoginSubmit}>
+  <label>Email:</label>
+  <input type="email" name="email" value={email} onChange={handleEmail} />
 
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
+  <label>Password:</label>
+  <input
+    type="password"
+    name="password"
+    value={password}
+    onChange={handlePassword}
+  />
 
-        <button type="submit">Login</button>
-      </form>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+  <button type="submit">Login</button>
+</form>
+{errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
+<p>Don't have an account yet?</p>
+<Link to={"/signup"} className="specialLink"> Sign Up</Link>
+      </div>
+          
     </div>
   );
 }
