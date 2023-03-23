@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 function PhoneDetails({phonesjson}) {
   const { id } = useParams();
-  const phone = phonesjson.find((phone) => phone.id === id);
+  const phone = phonesjson.find((phone) => phone.id === parseInt(id));
   console.log(phone)
   return (
  
